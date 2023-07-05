@@ -1,5 +1,7 @@
+// import mongoose
 const mongoose = require("mongoose")
 
+// route handlers
 const commentSchema = new mongoose.Schema({
     post: {
         type: mongoose.Schema.Types.ObjectId,
@@ -15,4 +17,5 @@ const commentSchema = new mongoose.Schema({
     }
 })
 
-module.exports = module.module("comment", commentSchema)
+// export
+module.exports = module.modele("comment", commentSchema)
