@@ -1,6 +1,6 @@
 // import the model
-const comments = require("../models/commentModels")
-const post = require("../models/postModels")
+const Comment = require("../models/commentModels")
+const Post = require("../models/postModels")
 
 // logic
 const createComment = async (req, res) => {
@@ -12,9 +12,9 @@ const createComment = async (req, res) => {
             post, user, body
         })
         // saved the comment into database
-        const savedComment = await comment.Save()
+        const savedComment = await comment.save()
         // find the post by id ,add the new comments to its comments array
-        const updatePost = await post.findByIdAndUpdate(
+        const updatePost = await Post.findByIdAndUpdate(
             post, { $push: { comments: savedComment._id } }, { new: true })
             .populate("comments")//populate the comment array with comment documents
             .exec()
