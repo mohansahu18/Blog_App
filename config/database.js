@@ -14,6 +14,7 @@ const dbConnection = () => {
             console.log(err);
             console.error(err);
             console.log("not able to connect with db");
+            process.exit(1)
         })
 
 
